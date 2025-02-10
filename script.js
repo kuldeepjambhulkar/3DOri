@@ -111,13 +111,19 @@ function updateRotation() {
     const pitch = Math.round(document.getElementById("pitch").value);
     const roll = Math.round(document.getElementById("roll").value);
 
-    // Apply rotation in the correct order: Yaw (Z), Pitch (X), Roll (Y)
-    plane.rotation.set(THREE.MathUtils.degToRad(pitch), THREE.MathUtils.degToRad(roll), THREE.MathUtils.degToRad(yaw));
-
-    // Update the displayed values
-    document.getElementById("yaw-val").textContent = `Yaw: ${yaw}° `;
-    document.getElementById("pitch-val").textContent = `Pitch: ${pitch}° `;
-    document.getElementById("roll-val").textContent = `Roll: ${roll}° `;
+    // Animate the plane rotation smoothly
+    gsap.to(plane.rotation, {
+        x: THREE.MathUtils.degToRad(pitch),
+        y: THREE.MathUtils.degToRad(roll),
+        z: THREE.MathUtils.degToRad(yaw),
+        duration: 0.5, // Adjust the duration as needed
+        onUpdate: () => {
+            // Update the displayed values
+            document.getElementById("yaw-val").textContent = `Yaw: ${yaw}° `;
+            document.getElementById("pitch-val").textContent = `Pitch: ${pitch}° `;
+            document.getElementById("roll-val").textContent = `Roll: ${roll}° `;
+        }
+    });
 }
 
 function toggleGrid() {
