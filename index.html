@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yaw, Pitch & Roll Demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://threejs.org/examples/js/loaders/FontLoader.js"></script>
+    <script src="https://threejs.org/examples/js/geometries/TextGeometry.js"></script>
+    <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="controls">
+            <table>
+                <tr>
+                    <td>Pitch (X-axis):</td>
+                    <td><input type="range" id="pitch" min="-180" max="180" value="0" step="10"></td>
+                </tr>
+                <tr>
+                    <td>Roll (Y-axis):</td>
+                    <td><input type="range" id="roll" min="-180" max="180" value="0" step="10"></td>
+                </tr>
+                <tr>
+                    <td>Yaw (Z-axis):</td>
+                    <td><input type="range" id="yaw" min="-180" max="180" value="0" step="10"></td>
+                </tr>
+                <tr>
+                    <td>Grid helpers: </td>
+                    <td><input type="checkbox" id="grid"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="reset">Reset</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="values">
+            Pitch (X-axis): <span id="pitch-val">00</span><br>
+            Roll (Y-axis): <span id="roll-val">00</span><br>
+            Yaw (Z-axis): <span id="yaw-val">00</span><br>
+        </div>
+        <div class="instructions">
+            <h2>What, Why & How...</h2>
+            <p>This project demonstrates the concepts of yaw, pitch, and roll using Three.js. It allows users to interactively adjust the orientation of a plane in 3D space using sliders.</p>
+            <h2>Philosophy of Coordinate Systems</h2>
+            <p>In 3D graphics, the coordinate system is crucial for defining the position and orientation of objects. This project uses the following conventions:</p>
+            <ul>
+                <li><strong>Pitch (X-axis):</strong> Rotation around the X-axis.</li>
+                <li><strong>Roll (Y-axis):</strong> Rotation around the Y-axis.</li>
+                <li><strong>Yaw (Z-axis):</strong> Rotation around the Z-axis.</li>
+            </ul>
+            <p>The camera is positioned on the negative Y-axis, looking towards the positive Y-axis, with the Z-axis pointing upwards. This setup helps in visualizing the rotations clearly.</p>
+            <h2>Right-Hand Coordinate System</h2>
+            <p>This project uses the right-hand coordinate system, which is a common convention in 3D graphics. In this system:</p>
+            <ul>
+                <li>The X-axis points to the right.</li>
+                <li>The Y-axis points forward.</li>
+                <li>The Z-axis points upward.</li>
+            </ul>
+            <h2>Plane Colors</h2>
+            <p>The plane in this project has distinct colors for its front and back sides:</p>
+            <ul>
+                <li><strong>Front:</strong> Orange</li>
+                <li><strong>Back:</strong> Teal</li>
+            </ul>
+            <p>This color distinction helps in understanding the orientation of the plane as it rotates.</p>
+        </div>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

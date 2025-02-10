@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+.container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    line-height: 30px;
+}
+.controls {
+    margin: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.controls label {
+    display: block;
+    margin: 10px 0;
+}
+.values {
+    margin: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.instructions{
+    margin: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: 30rem;
+    overflow: auto;
+}
+
+
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+.instructions {
+    scrollbar-color: #80808052;
+}
+
+/* Chrome, Edge, and Safari */
+.instructions::-webkit-scrollbar {
+    width: 16px;
+}
+
+.instructions::-webkit-scrollbar-track {
+    display: none;
+}
+
+.instructions::-webkit-scrollbar-thumb {
+    background-color: #80808052;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+}
