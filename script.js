@@ -132,14 +132,33 @@ function toggleGrid() {
 }
 
 function resetRotation() {
+    const duration = 1; // Duration of the animation in seconds
+
+    // Animate the plane rotation
+    gsap.to(plane.rotation, {
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: duration,
+        onUpdate: updateRotation
+    });
+
+    // Animate the camera position and orientation
+    gsap.to(camera.position, {
+        x: 0,
+        y: -15,
+        z: 0,
+        duration: duration,
+        onUpdate: () => {
+            camera.lookAt(0, 1, 0);
+            controls.update();
+        }
+    });
+
+    // Reset the input values
     document.getElementById("yaw").value = 0;
     document.getElementById("pitch").value = 0;
     document.getElementById("roll").value = 0;
-    camera.position.set(0, -15, 0); // Stand at the origin
-    camera.up.set(0, 0, 1); // Head aligned with the Z-axis
-    camera.lookAt(0, 1, 0); // Look towards the positive Y-axis
-    updateRotation();
-    
 }
 
 function animate() {
